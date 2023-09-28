@@ -26,7 +26,21 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
+        """
+        Displays the posts by the date of creation in descending order
+        """
         ordering = ['-created_date']
 
     def __str__(self):
+        """
+        Built in Django function which returns a string representation
+        of an object
+        """
         return self.title
+
+    def blog_snippet(self):
+        """
+        Returns a predefined amount of characters on the blogs page for each
+        blog and adds trailing dots to indicate a preview
+        """
+        return self.post_content[:100] + '...'
