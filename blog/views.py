@@ -12,8 +12,17 @@ def post_list(request):
     template = 'post_list.html'
     posts = Post.objects.all()
     context = {
-        'page_title': 'Blogs',
         'blogs': posts
+    }
+
+    return render(request, template, context)
+
+
+def post_detail(request, post_id):
+    template = 'post_detail.html'
+    post = get_object_or_404(Post, post_id=post_id)
+    context = {
+        'blog': post
     }
 
     return render(request, template, context)

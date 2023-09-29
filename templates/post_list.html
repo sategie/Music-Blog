@@ -1,12 +1,14 @@
-<h1>Blogs</h1>
+{% extends 'base.html' %} {% block content %}
+<h2>Blogs</h2>
 <div class="blogs">
   {% for blog in blogs %}
   <div class="blog">
-    <h2>
+    <h3>
       <a href="#">{{blog.title}}</a>
-    </h2>
-    <p>{{blog.blog_snippet}}</p>
+    </h3>
+    <p>{{blog.blog_snippet | safe}}</p>
     <p>{{blog.created_date}}</p>
   </div>
   {% endfor %}
 </div>
+{% endblock %}
