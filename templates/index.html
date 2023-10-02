@@ -1,21 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="hero">
-  <div class="container-fluid">
-    <!-- <div class="row hero-text align-items-center">
-      <div class="col col-xl-4 offset-xl-6">
-        <h1>Fly Fishing</h1>
-        <h2>Småland, Sweden</h2>
-        {% if user.is_authenticated %}
-        <a href="{% url 'blogs' %}" class="btn btn-signup btn-lg mt-3">Blogs</a>
-        {% else %}
-        <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg mt-3"
-          >Register</a
-        >
-        {% endif %}
-      </div>
-    </div> -->
-  </div>
-</section>
+<article>
+  <h1>This is a main content.</h1>
+  <p>This is the main content displayed in the content area</p>
+</article>
 
 {% endblock %}
