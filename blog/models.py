@@ -44,3 +44,25 @@ class Post(models.Model):
         blog and adds trailing dots to indicate a preview
         """
         return self.post_content[:100] + '...'
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments'),
+    username = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_comments'),
+    comment_content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        """
+        Displays the comments by the date of creation in descending order
+        """
+        ordering = ['-created_date']
+
+    def __str__(self):
+        """
+        Returns comment and username who made the comment
+        """
+        return f'Comment {self.comment_content} by {self.username}'
