@@ -19,11 +19,15 @@ class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='blog_posts')
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
     post_content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(
+        User, related_name='blogpost_like', blank=True
+    )
 
     class Meta:
         """
@@ -44,6 +48,12 @@ class Post(models.Model):
         blog and adds trailing dots to indicate a preview
         """
         return self.post_content[:100] + '...'
+
+    def number_of_likes(self):
+        """
+        Returns the number of blog likes
+        """
+        return self.likes.count()
 
 
 class Comment(models.Model):
