@@ -67,9 +67,9 @@ class Comment(models.Model):
 
     class Meta:
         """
-        Displays the comments by the date of creation in descending order
+        Displays the comments by the date of creation in ascending order
         """
-        ordering = ['-created_date']
+        ordering = ['created_date']
 
     def __str__(self):
         """

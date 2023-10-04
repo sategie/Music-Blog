@@ -18,9 +18,9 @@ def post_list(request):
     return render(request, template, context)
 
 
-def post_detail(request, post_id):
+def post_detail(request, slug):
     template = 'post_detail.html'
-    post = get_object_or_404(Post, post_id=post_id)
+    post = get_object_or_404(Post, slug=slug)
     context = {
         'blog': post
     }
