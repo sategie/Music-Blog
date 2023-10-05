@@ -10,7 +10,7 @@ def index(request):
 
 def post_list(request):
     template = 'post_list.html'
-    posts = Post.objects.all()
+    posts = Post.objects.filter(status=1)
     context = {
         'blogs': posts
     }

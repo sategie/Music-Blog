@@ -1,7 +1,9 @@
 body {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    background: url('https://res.cloudinary.com/dvfxz4as6/image/upload/v1696421632/django/guitar_image_afbikm.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 footer {
