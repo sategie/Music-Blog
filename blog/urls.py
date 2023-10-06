@@ -6,3 +6,4 @@ urlpatterns = [
     path('blogs/', views.post_list, name='blogs'),
     path('blogs/<slug:slug>/', views.post_detail, name='blog'),
 ]
+    

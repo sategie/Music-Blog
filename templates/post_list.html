@@ -4,7 +4,7 @@
   {% for blog in blogs %}
   <div class="blog">
     <h3>
-      <a href="#">{{blog.title}}</a>
+      <a href="{% url 'blog' blog.slug  %}">{{blog.title}}</a>
     </h3>
     <p>{{blog.blog_snippet | safe}}</p>
     <p>{{blog.created_date}}</p>
