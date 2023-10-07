@@ -22,15 +22,11 @@ def post_detail(request, slug):
     template = 'post_detail.html'
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.filter(approved=True).order_by('-created_date')
-    liked = False
-    if post.likes.filter(id=self.request.user.id).exists():
-        liked = True
+    comments = post.blog_comments.filter(
+        approved=True).order_by('-created_date')
     context = {
         'blog': post,
         'comments': comments,
-        'liked': liked
-
     }
 
     return render(request, template, context)
