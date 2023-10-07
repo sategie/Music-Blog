@@ -61,8 +61,9 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=80)
+        Post, on_delete=models.CASCADE, related_name='blog_comments')
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_comments')
     comment_content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
@@ -75,4 +76,4 @@ class Comment(models.Model):
 
     def __str__(self):
         """Returns comment content with name of comment creator"""
-        return f'Comment {self.comment_content} by {self.name}'
+        return f'Comment {self.comment_content} by {self.author}'
