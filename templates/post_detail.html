@@ -7,7 +7,7 @@
         <!-- blog title goes in these h1 tags -->
         <h1 class="blog-title">{{ blog.title }}</h1>
         <!-- blog author goes before the | the blog's created date goes after -->
-        <p class="blog-subtitle">{{ blog.author }} | {{ blog.created_date }}</p>
+        <p class="blog-subtitle">Written by {{ blog.author }} | {{ blog.created_date }}</p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
         <!-- The featured image URL goes in the src attribute -->
@@ -35,13 +35,13 @@
           <div class="col-1">
             <!-- The number of likes goes before the closing strong tag -->
             <strong class="text-secondary"
-              ><i class="far fa-heart"></i> {{ blog.number_of_likes }}
+              ><i class="fa-regular fa-heart"></i> {{ blog.number_of_likes }}
             </strong>
           </div>
           <div class="col-1">
             {% with comments.count as total_comments %}
             <strong class="text-secondary"
-              ><i class="far fa-comments"></i>
+              ><i class="fa-regular fa-comment-dots"></i>
               <!-- Our total_comments variable goes before the closing strong tag -->
               {{ total_comments }}</strong
             >
