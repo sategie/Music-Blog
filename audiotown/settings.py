@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-sategie-music-blog-h86f689ebm.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-sategie-music-blog-3ilii8z1k1.us2.codeanyapp.com',
                  'audiotown-music-blog-8325eb2cec3b.herokuapp.com', 'localhost']
 
 

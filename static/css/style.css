@@ -40,6 +40,11 @@ body {
     z-index: 100;
 }
 
+a {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
 footer {
     margin-top: auto;
 }
