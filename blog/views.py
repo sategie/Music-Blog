@@ -3,6 +3,7 @@ from django.urls import reverse
 from .models import Post
 from django.http import HttpResponseRedirect
 from .forms import CommentForm
+from django.contrib import messages
 
 
 def index(request):
@@ -49,6 +50,8 @@ def post_detail(request, slug):
             new_comment.post = post
             new_comment.author = request.user
             new_comment.save()
+            messages.success(
+                request, "Sent!")
             commented = True
 
     else:
