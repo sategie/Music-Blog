@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- User profile -->
+        <div class="col-md-12">
+            <h4>User Profile</h4>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <!-- <div class="card-header">
+                    <h3>User Profile</h3>
+                </div> -->
+                <div class="card-body">
+                    <!-- User details -->
+                    <img class="img-responsive" id="profile_pic" src="{{ profile.profile_pic }}" alt="Profile image">
+                    <p id="username">{{ profile.username }}</p>
+                    <p id="full_name">Full Name: {{ profile.full_name }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Another col-md-6 div for bio -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" id="about">
+                    About Me
+                </div>
+                <div class="card-body">
+                    <p id="bio">{{ profile.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

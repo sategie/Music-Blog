@@ -62,3 +62,22 @@ a {
 footer {
     margin-top: auto;
 }
+
+.img-responsive {
+    width: 20rem;
+    height: 20rem;
+}
+
+#username {
+    font-size: large;
+    font-weight: bold;
+}
+
+#full_name {
+    font-weight: bold;
+}
+
+#about {
+    background: #212529;
+    color: #fff;
+}

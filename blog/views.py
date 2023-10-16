@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from .models import Post
+from .models import Post, Profile
 from django.http import HttpResponseRedirect
 from .forms import CommentForm
 from django.contrib import messages
@@ -95,3 +95,22 @@ def like_post(request, slug):
         post.likes.add(user)
     reversed_url = reverse('blog', args=[slug])
     return HttpResponseRedirect(reversed_url)
+
+# def user_profile(request, username):
+#     template = 'profile.html'
+#     queryset = Profile.objects.all(username)
+#     profile = get_object_or_404(queryset)
+#     context = {
+#         'profile': profile
+#     }
+
+#     return (request, template, context)
+
+
+def user_profile(request, username):
+    template = 'profile.html'
+    profile = get_object_or_404(Profile, user__username=username)
+    context = {
+        'profile': profile
+    }
+    return render(request, template, context)

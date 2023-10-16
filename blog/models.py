@@ -77,3 +77,14 @@ class Comment(models.Model):
     def __str__(self):
         """Returns comment content with name of comment creator"""
         return f'Comment {self.comment_content} by {self.author}'
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100)
+    username = models.CharField(max_length=70, default='')
+    profile_pic = CloudinaryField('image', default='https://res.cloudinary.com/dvfxz4as6/image/upload/v1697302483/blank-profile-picture-973460_1280_skkwoi.png')
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.username

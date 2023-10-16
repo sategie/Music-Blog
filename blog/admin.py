@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Profile
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -25,3 +25,14 @@ class CommentAdmin(admin.ModelAdmin):
         Function to approve selected comments
         """
         queryset.update(approved=True)
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'full_name')
+    actions = ['delete_uploaded_profile_pic']
+
+    def delete_profile_pic(self, request, queryset):
+        """
+        Function to remove uploaded profile pic
+        """
+        queryset.update(profile_pic='https://res.cloudinary.com/dvfxz4as6/image/upload/v1697302483/blank-profile-picture-973460_1280_skkwoi.png')
