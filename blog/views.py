@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from .models import Post, Profile
-from django.http import HttpResponseRedirect
-from .forms import CommentForm
+from django.http import HttpResponseRedirect, HttpResponseForbidden
+from .forms import CommentForm, PostForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
+
 
 
 def index(request):
@@ -69,17 +72,6 @@ def post_detail(request, slug):
     return render(request, template, context)
 
 
-# def like_post(request, slug):
-#     post = get_object_or_404(Post, slug=slug)
-#     post.likes.add(request.user)
-#     if post.likes.filter(id=request.user.id).exists():
-#         post.likes.remove(request.user)
-#     else:
-#         post.likes.add(request.user)
-    
-#     reversed_url = reverse('blog', args=[slug])
-#     return HttpResponseRedirect(reversed_url)
-
 def like_post(request, slug):
     """
     This function is used to manage the likes of a user on a blog post
@@ -95,6 +87,29 @@ def like_post(request, slug):
         post.likes.add(user)
     reversed_url = reverse('blog', args=[slug])
     return HttpResponseRedirect(reversed_url)
+
+@login_required
+def create_post(request):
+    template = 'post_create.html'
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.slug = slugify(post.title)
+            post.save()
+            reversed_url = reverse('blogs')
+            return HttpResponseRedirect(reversed_url)
+    else:
+        form = PostForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, template, context)
+
+
+
+
 
 # def user_profile(request, username):
 #     template = 'profile.html'

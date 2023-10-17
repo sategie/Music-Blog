@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
 from .models import Post, Comment, Profile
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -36,3 +38,24 @@ class ProfileAdmin(admin.ModelAdmin):
         Function to remove uploaded profile pic
         """
         queryset.update(profile_pic='https://res.cloudinary.com/dvfxz4as6/image/upload/v1697302483/blank-profile-picture-973460_1280_skkwoi.png')
+
+
+class UserAdmin(BaseUserAdmin):
+    """
+    Modifies the built-in User model to add 'is_staff' and 'is_superuser' which enables
+    the creation of users with staff and superuser status in Django Admin.
+    """
+    # Fields used when creating a user
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'password1', 'password2', 'is_staff', 'is_superuser'),
+        }),
+    )
+
+    list_display = ('username', 'is_superuser')
+
+
+# Register the new UserAdmin
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
