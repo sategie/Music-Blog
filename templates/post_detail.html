@@ -35,6 +35,15 @@
         <!-- The blog content goes inside the card-text. -->
         <!-- Use the | safe filter inside the template tags -->
         <p class="card-text">{{ blog.post_content | safe }}</p>
+        <!-- Option to edit post -->
+        {% if request.user == blog.author %}
+        <a href="{% url 'modify_post' blog.slug %}" class="btn btn-primary">Edit Blog</a>
+        {% endif %}
+        <!-- Option to delete post -->
+        {% if request.user == blog.author %}
+        <a href="{% url 'delete_post' blog.slug %}" class="btn btn-danger">Delete Blog</a>
+        {% endif %}
+
         <div class="row">
           <div class="col-1">
             <strong>

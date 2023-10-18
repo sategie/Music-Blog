@@ -108,6 +108,57 @@ def create_post(request):
     return render(request, template, context)
 
 
+@login_required
+def modify_post(request, slug):
+    """
+    The function does the following:
+    - gets the post instance related to the slug
+    - checks if request is POST
+    - saves the form's data without commiting to the database
+    - modifies the slug depending on the title of the post
+    - saves the post to the database afterwards
+    - after saving to the database, the user is redirected to the specific 
+      blog's page
+    - if it is not a POST request, the initial form is displayed
+    """
+    template = 'post_modify.html'
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.slug = slugify(post.title)
+            post.save()
+            reversed_url = reverse('blog', args=[slug])
+            return HttpResponseRedirect(reversed_url)
+    else:
+        form = PostForm(instance=post)
+    context = {
+        'form': form
+    }
+    return render(request, template, context)
+
+
+@login_required
+def delete_post(request, slug):
+    """
+    The function does the following:
+    - gets the post instance related to the slug
+    - deletes the post
+    - after deleting the post, the user is redirected to the post list page
+    """
+    template = 'post_delete.html'
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Blog post has been deleted successfully.')
+        reversed_url = reverse('blogs')
+        return HttpResponseRedirect(reversed_url)
+    else:
+        context = {
+            'post': post
+        }
+        return render(request, template, context)
 
 
 
