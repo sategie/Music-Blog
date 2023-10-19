@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponseForbidden
 from .forms import CommentForm, PostForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.text import slugify
 
 
@@ -71,7 +72,7 @@ def post_detail(request, slug):
 
     return render(request, template, context)
 
-
+@login_required
 def like_post(request, slug):
     """
     This function is used to manage the likes of a user on a blog post
@@ -88,7 +89,9 @@ def like_post(request, slug):
     reversed_url = reverse('blog', args=[slug])
     return HttpResponseRedirect(reversed_url)
 
+
 @login_required
+@staff_member_required
 def create_post(request):
     template = 'post_create.html'
     if request.method == 'POST':
@@ -109,6 +112,7 @@ def create_post(request):
 
 
 @login_required
+@staff_member_required
 def modify_post(request, slug):
     """
     The function does the following:
@@ -140,6 +144,7 @@ def modify_post(request, slug):
 
 
 @login_required
+@staff_member_required
 def delete_post(request, slug):
     """
     The function does the following:
@@ -173,10 +178,14 @@ def delete_post(request, slug):
 #     return (request, template, context)
 
 
+@login_required
+@staff_member_required
 def user_profile(request, username):
     template = 'profile.html'
     profile = get_object_or_404(Profile, user__username=username)
+    blog_posts = Post.objects.filter(author=request.user)
     context = {
-        'profile': profile
+        'profile': profile,
+        'blog_posts': blog_posts
     }
     return render(request, template, context)

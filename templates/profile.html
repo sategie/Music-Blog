@@ -32,6 +32,27 @@
                 </div>
             </div>
         </div>
+        <!-- Div for User's Posts -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" id="posts">
+                    My Posts
+                </div>
+                <div class="card-body">
+                    {% for blog_post in blog_posts %}
+                    <div class="post">
+                        <h3>
+                            <a href="{{ blog_post.get_absolute_url }}">
+                                {{ blog_post.title | safe }}
+                            </a>
+                        </h3>
+                        <!-- <h3>{{ blog_post.title | safe }}</h3> -->
+                        <p>{{ blog_post.blog_snippet | safe }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
