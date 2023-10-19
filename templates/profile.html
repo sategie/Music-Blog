@@ -31,6 +31,11 @@
                     <p id="bio">{{ profile.bio }}</p>
                 </div>
             </div>
+            <!-- Edit Profile -->
+            <div>
+                <a href="{% url 'edit_profile' profile.username %}">Edit Profile</a>
+            </div>
+            
         </div>
         <!-- Div for User's Posts -->
         <div class="col-md-12">
@@ -46,7 +51,6 @@
                                 {{ blog_post.title | safe }}
                             </a>
                         </h3>
-                        <!-- <h3>{{ blog_post.title | safe }}</h3> -->
                         <p>{{ blog_post.blog_snippet | safe }}</p>
                     </div>
                     {% endfor %}

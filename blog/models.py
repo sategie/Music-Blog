@@ -60,6 +60,10 @@ class Post(models.Model):
         return self.likes.count()
 
     def get_absolute_url(self):
+        """
+        Uses the reverse function from Django to redirect to the specific blog's
+        url
+        """
         return reverse('blog', kwargs={'slug':self.slug}) 
 
 

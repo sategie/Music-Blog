@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from .models import Post, Profile
 from django.http import HttpResponseRedirect, HttpResponseForbidden
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, ProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -189,3 +189,20 @@ def user_profile(request, username):
         'blog_posts': blog_posts
     }
     return render(request, template, context)
+
+
+@login_required
+@staff_member_required
+def edit_profile(request, username):
+    profile = get_object_or_404(Profile, user__username=username)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            reversed_url = reverse('profile', args=[username])
+            return HttpResponseRedirect(reversed_url)
+    else:
+        form = ProfileForm(instance=profile)
+
+    context = {'form': form}
+    return render(request, 'edit_profile.html', context)
