@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from django.db import IntegrityError
 
 
 
@@ -108,10 +109,30 @@ def create_post(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            # Capitalize the first letter in each word in the title
+            post.title = post.title.title()
+
             post.slug = slugify(post.title)
-            post.save()
+            # Set author to the currently logged in user
+            post.author = request.user
+            
+            try:
+                post.save()
+            # Handle cases where a slug already exists for a given title
+            except IntegrityError:
+                messages.error(
+                    request, 'A post with the same title or slug already exists.')
+                context = {
+                    'form': form
+                }
+                return render(request, template, context)
+
             reversed_url = reverse('blogs')
             return HttpResponseRedirect(reversed_url)
+            
+            # post.save()
+            # reversed_url = reverse('blogs')
+            # return HttpResponseRedirect(reversed_url)
     else:
         form = PostForm()
 
@@ -141,8 +162,24 @@ def modify_post(request, slug):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
+             # Capitalize the first letter in each word in the title
+            post.title = post.title.title()
+
             post.slug = slugify(post.title)
-            post.save()
+            # Sets author to the currently logged in user
+            post.author = request.user
+
+            try:
+                post.save()
+            # Handle cases where a slug already exists for a given title
+            except IntegrityError:
+                messages.error(
+                    request, 'A post with the same title or slug already exists.')
+                context = {
+                    'form': form
+                }
+                return render(request, template, context)
+
             reversed_url = reverse('blog', args=[slug])
             return HttpResponseRedirect(reversed_url)
     else:
