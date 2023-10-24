@@ -15,7 +15,7 @@
                     <p class="card-text">Deleted posts can no longer be retrieved!</p>
                     <form method="POST" class="mb-3">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger mx-5">Yes, delete post</button>
+                        <button type="submit" class="btn btn-dark">Yes, delete post</button>
                         <a href="{% url 'blogs' %}" class="btn btn-secondary mx-5">No, take me back to the blogs list</a>
                     </form>
                 </div>

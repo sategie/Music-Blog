@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 
 
 
@@ -17,10 +18,19 @@ def index(request):
 
 
 def post_list(request):
+    """
+    Shows the list of posts with 5 posts per page
+    """
     template = 'post_list.html'
     posts = Post.objects.filter(status=1)
+    # Pagination - 5 posts per page
+    paginator = Paginator(posts, 5)
+    # Getting the page number from the GET request parameters
+    page_number = request.GET.get('page')
+    # Getting the Page object for the given page number
+    page_obj = paginator.get_page(page_number)
     context = {
-        'blogs': posts
+        'blogs': page_obj
     }
 
     return render(request, template, context)
