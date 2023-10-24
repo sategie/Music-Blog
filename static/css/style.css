@@ -85,3 +85,19 @@ footer {
 #delete_post {
     background: #212529;
 }
+
+.img-style {
+    height: 300px;
+    width: 320px;
+    object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+}
+
+/* .card {
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+} */
+

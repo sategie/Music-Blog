@@ -24,8 +24,8 @@ def post_list(request):
     """
     template = 'post_list.html'
     posts = Post.objects.filter(status=1)
-    # Pagination - 5 posts per page
-    paginator = Paginator(posts, 5)
+    # Pagination - 6 posts per page
+    paginator = Paginator(posts, 6)
     # Getting the page number from the GET request parameters
     page_number = request.GET.get('page')
     # Getting the Page object for the given page number
@@ -130,9 +130,6 @@ def create_post(request):
             reversed_url = reverse('blogs')
             return HttpResponseRedirect(reversed_url)
             
-            # post.save()
-            # reversed_url = reverse('blogs')
-            # return HttpResponseRedirect(reversed_url)
     else:
         form = PostForm()
 
