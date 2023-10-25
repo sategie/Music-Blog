@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<section class="main-section container mt-4">
-  <h1 class="display-4">Welcome to the AudioTown Music Blog website.</h1>
-  <p class="fs-5">
-    To view music blogs, click on <a href="{% url 'blogs' %}" class="text-primary">Blogs</a>
-  </p>
-  <p class="fs-5">
-    To like or comment on a blog, click on
-    <a href="{% url 'account_signup' %}" class="text-primary">Signup</a> if you are a new user or click
-    on <a href="{% url 'account_login' %}" class="text-primary"> Login</a> if you already have an account
-  </p>
-</section>
-
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Welcome to the AudioTown Music Blog</h1>
+            <p class="card-text">To view music blogs, click on <a href="{% url 'blogs' %}" class="text-primary">Blogs</a></p>
+            <p class="card-text">To like or comment on a blog, click on
+            <a href="{% url 'account_signup' %}" class="text-primary">Signup</a> if you are a new user or click
+            on <a href="{% url 'account_login' %}" class="text-primary"> Login</a> if you already have an account</p>
+        </div>
+        <img src="https://res.cloudinary.com/dvfxz4as6/image/upload/v1698241399/guitar-strings_cfmrle.jpg" class="card-img-bottom" alt="Guitar strings">
+    </div>
+</div>
+t
   {% endblock %}
-</section>

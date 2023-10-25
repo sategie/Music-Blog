@@ -2,8 +2,12 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: url('https://res.cloudinary.com/dvfxz4as6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1696421632/django/guitar_image_afbikm.jpg') no-repeat center;
+    /* background: url('https://res.cloudinary.com/dvfxz4as6/image/upload/v1698269717/textile-2918844_1920_r0jwss.jpg') no-repeat center; */
     background-size: cover;
+}
+
+.navbar {
+    font-size: larger;
 }
 
 .masthead {
@@ -112,8 +116,7 @@ footer {
     position: relative;
 }
 
-/* .card {
-    opacity: 0.8;
-    filter: alpha(opacity=60);
-} */
 
+.card-text {
+    font-size: larger;
+}
