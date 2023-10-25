@@ -90,6 +90,22 @@ footer {
     height: 300px;
     width: 320px;
     object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #212529;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.pic-style {
+    height: 300px;
+    width: fit-content;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #212529;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .image-container {
