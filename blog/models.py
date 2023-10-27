@@ -51,7 +51,7 @@ class Post(models.Model):
         Returns a predefined amount of characters on the blogs page for each
         blog and adds trailing dots to indicate a preview
         """
-        return self.post_content[:50] + '...'
+        return self.post_content[:40] + '...'
 
     def number_of_likes(self):
         """
