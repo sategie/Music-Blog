@@ -10,10 +10,10 @@
             {% else %}
             <h1 class="card-title">Welcome to the AudioTown Music Blog</h1>
             <p class="card-text">To view music blogs, click on <a href="{% url 'blogs' %}"
-                    class="text-primary">Blogs</a></p>
+                    class="blog-link">Blogs</a></p>
             <p class="card-text">To like or comment on a blog, click on
-                <a href="{% url 'account_signup' %}" class="text-primary">Signup</a> if you are a new user or click
-                on <a href="{% url 'account_login' %}" class="text-primary"> Login</a> if you already have an account
+                <a href="{% url 'account_signup' %}" class="blog-link">Signup</a> if you are a new user or click
+                on <a href="{% url 'account_login' %}" class="blog-link"> Login</a> if you already have an account
             </p>
             {% endif %}
         </div>

@@ -20,7 +20,7 @@
                                     <p class="writer">Written by {{ blog.author.get_full_name | default:blog.author.username }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'blog' blog.slug  %}" class="post-link">
+                            <a href="{% url 'blog' blog.slug  %}" class="blog-link">
                                 <h2 class="card-title">{{ blog.title }}</h2>
                                 <p class="card-text">{{ blog.blog_snippet | safe }}</p>
                             </a>

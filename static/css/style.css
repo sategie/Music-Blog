@@ -47,9 +47,13 @@ body {
 }
 /* End of adopted code */
 
-a {
-    color: #23BBBB;
+.blog-link {
+    color: #212529;
     text-decoration: none;
+}
+
+.blog-link:hover {
+    color: #E84610;
 }
 
 .btn-like {
@@ -142,6 +146,11 @@ footer {
     margin-left: 0.8rem;
 }
 
+.input-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
