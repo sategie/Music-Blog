@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <!-- User profile -->
-        <div class="col-md-12">
+        <div class="col-md-12 mt-2">
             <h4>User Profile</h4>
         </div>
         <div class="col-md-6">
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <!-- Edit Profile -->
-            <div class="mb-5 mt-1">
-                <a href="{% url 'edit_profile' profile.username %}">Edit Profile</a>
+            <div class="mb-5 mt-1 fw-bold">
+                <a class="blog-link" href="{% url 'edit_profile' profile.username %}">Edit Profile</a>
             </div>
         </div>
         <hr>
@@ -46,7 +46,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <h3>
-                                <a href="{{ blog_post.get_absolute_url }}">
+                                <a class="blog-link" href="{{ blog_post.get_absolute_url }}">
                                     {{ blog_post.title | safe }}
                                 </a>
                             </h3>
