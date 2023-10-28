@@ -9,19 +9,16 @@
             <h4>User Profile</h4>
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <!-- <div class="card-header">
-                    <h3>User Profile</h3>
-                </div> -->
+            <div class="card mb-3">
                 <div class="card-body">
                     <!-- User details -->
-                    <img class="img-responsive pic-style" id="profile_pic" src="{{ profile.profile_pic.url }}" alt="Profile image">
+                    <img class="img-responsive pic-style" id="profile_pic" src="{{ profile.profile_pic.url }}"
+                        alt="Profile image">
                     <p id="username">{{ profile.username }}</p>
                     <p id="full_name">Full Name: {{ profile.full_name }}</p>
                 </div>
             </div>
         </div>
-        <!-- Another col-md-6 div for bio -->
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header" id="about">
@@ -32,26 +29,29 @@
                 </div>
             </div>
             <!-- Edit Profile -->
-            <div>
+            <div class="mb-5 mt-1">
                 <a href="{% url 'edit_profile' profile.username %}">Edit Profile</a>
             </div>
-            
         </div>
+        <hr>
         <!-- Div for User's Posts -->
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" id="posts">
+                <div class="card-header">
                     My Posts
                 </div>
                 <div class="card-body">
+                    <!-- Each post now inside its own card -->
                     {% for blog_post in blog_posts %}
-                    <div class="post">
-                        <h3>
-                            <a href="{{ blog_post.get_absolute_url }}">
-                                {{ blog_post.title | safe }}
-                            </a>
-                        </h3>
-                        <p>{{ blog_post.blog_snippet | safe }}</p>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3>
+                                <a href="{{ blog_post.get_absolute_url }}">
+                                    {{ blog_post.title | safe }}
+                                </a>
+                            </h3>
+                            <p>{{ blog_post.blog_snippet | safe }}</p>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>

@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&display=swap');
+
 body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    /* background: url('https://res.cloudinary.com/dvfxz4as6/image/upload/v1698269717/textile-2918844_1920_r0jwss.jpg') no-repeat center; */
-    background-size: cover;
+    font-family: 'Roboto Serif', serif;
 }
 
 .navbar {
     font-size: larger;
 }
 
+/* Masthead design adopted from Code Institute's 'I think therefore I Blog' Django project */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -43,7 +45,7 @@ body {
     transform: skew(15deg);
     z-index: 100;
 }
-
+/* End of adopted code */
 
 a {
     color: #23BBBB;
@@ -84,6 +86,10 @@ footer {
 #about {
     background: #212529;
     color: #fff;
+}
+
+.posts {
+    font-size: large;
 }
 
 #delete_post {
