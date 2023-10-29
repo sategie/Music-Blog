@@ -18,10 +18,10 @@
         {% if "placeholder" in blog.featured_image.url %}
         <img
           src="https://res.cloudinary.com/dvfxz4as6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1696421917/django/music_blog_u8unue.jpg"
-          width="100%"
+          width="100%" alt="Default blog image"
         />
         {% else %}
-        <img src=" {{ blog.featured_image.url }}" width="100%" />
+        <img src=" {{ blog.featured_image.url }}" width="100%" alt="Blog image selected by author"/>
         {% endif %}
       </div>
     </div>
@@ -98,7 +98,6 @@
           <!-- The body of the comment goes before the | -->
           {{ comment.comment_content | linebreaks }}
         </div>
-        <!-- Our for loop ends here -->
         {% endfor %}
       </div>
     </div>

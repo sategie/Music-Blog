@@ -4,47 +4,43 @@ from blog.models import Post, Profile
 from django.contrib.auth.models import User
 
 
+class TestForms(TestCase):
+    """
+    Test class for testing forms
+    """
 
-class TestCommentForm(TestCase):
-    """
-    Test that fields on comment form exist and are in the expected order
-    """
     def setUp(self):
-        self.form = CommentForm()
+        """
+        Set up test environment
+        """
+        self.user = User.objects.create_user('testuser', 'testpassword')
+        self.comment_form = CommentForm()
+        self.post_form = PostForm()
+        self.profile_form = ProfileForm()
 
-    def test_form_has_fields(self):
+    def test_comment_form_has_fields(self):
+        """
+        Test that fields in comment form exist and are in the expected order
+        """
         expected = ['comment_content']
-        actual = list(self.form.fields)
+        actual = list(self.comment_form.fields)
         self.assertSequenceEqual(expected, actual)
 
-
-class TestPostForm(TestCase):
-    """
-    Test that fields on post form exist and are in the expected order
-    """
-    def setUp(self):
-        self.user = User.objects.create_user(
-            'testuser', 'testpassword')
-        self.form = PostForm()
-
-    def test_form_has_fields(self):
+    def test_post_form_has_fields(self):
+        """
+        Test that fields in post form exist and are in the expected order
+        """
         expected = ['title', 'author',
                     'featured_image', 'post_content', 'status']
-        actual = list(self.form.fields)
+        actual = list(self.post_form.fields)
         self.assertSequenceEqual(expected, actual)
 
-
-class TestProfileForm(TestCase):
-    """
-    Test that fields on profile form exist and are in the expected order
-    """
-    def setUp(self):
-        self.user = User.objects.create_user(
-            'testuser', 'testpassword')
-        self.form = ProfileForm()
-
-    def test_form_has_fields(self):
+    def test_profile_form_has_fields(self):
+        """
+        Test that fields in profile form exist and are in the expected order
+        """
         expected = ['full_name', 'bio']
-        actual = list(self.form.fields)
+        actual = list(self.profile_form.fields)
         self.assertSequenceEqual(expected, actual)
+
 

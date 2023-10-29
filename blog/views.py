@@ -13,6 +13,9 @@ from django.db import IntegrityError
 
 
 def index(request):
+    """
+    Landing page
+    """
     template = 'index.html'
 
     return render(request, template)
@@ -159,7 +162,7 @@ def modify_post(request, slug):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-             # Capitalize the first letter in each word in the title
+            # Capitalize the first letter in each word in the title
             post.title = post.title.title()
 
             post.slug = slugify(post.title)
