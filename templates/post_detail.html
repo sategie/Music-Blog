@@ -59,7 +59,6 @@
                 {% else %}
                 <span class="text-secondary"><i class="fa-regular fa-heart"></i></span>
                 {% endif %}
-                <!-- The number of likes goes before the closing strong tag -->
                 <span class="text-secondary">{{ blog.number_of_likes }} </span>
             </strong>
           </div>
@@ -67,7 +66,6 @@
             {% with comments.count as total_comments %}
             <strong class="text-secondary"
               ><i class="fa-regular fa-comment-dots"></i>
-              <!-- Our total_comments variable goes before the closing strong tag -->
               {{ total_comments }}</strong
             >
             {% endwith %}

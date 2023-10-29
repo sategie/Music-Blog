@@ -16,7 +16,7 @@
                                 {% else %}
                                 <img class="card-img-top img-style" src=" {{ blog.featured_image.url }}" />
                                 {% endif %}
-                                <div class="image-flash">
+                                <div class="image-flash mt-2">
                                     <p class="writer">Written by {{ blog.author.get_full_name | default:blog.author.username }}</p>
                                 </div>
                             </div>
@@ -28,6 +28,7 @@
                             <p class="card-text text-muted h6">
                                 {{ blog.created_date}} 
                                 <i class="far fa-heart"></i> {{blog.number_of_likes }}
+                    
                             </p>
                         </div>
                     </div>

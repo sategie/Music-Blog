@@ -210,18 +210,6 @@ def delete_post(request, slug):
         return render(request, template, context)
 
 
-
-# def user_profile(request, username):
-#     template = 'profile.html'
-#     queryset = Profile.objects.all(username)
-#     profile = get_object_or_404(queryset)
-#     context = {
-#         'profile': profile
-#     }
-
-#     return (request, template, context)
-
-
 @login_required
 @staff_member_required
 def user_profile(request, username):
