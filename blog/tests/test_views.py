@@ -95,6 +95,35 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(self.post1.likes.count(), initial_likes)
 
+    def test_create_post_POST(self):
+        """
+        Test that the create_post view can create a new post
+        """
+        response = self.client.post(
+            self.create_post_url, {
+                'title': 'New Post Title',
+                'slug': 'new-post',
+                'author': self.user.id,
+                'post_content': 'New Post Content',
+                'status': 1
+            })
+        # fetches the most recently created post
+        new_post = Post.objects.order_by('-post_id')[0]
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(new_post.title, 'New Post Title')
+        new_post.delete()
+
+    def test_post_comment_POST(self):
+        """
+        Test that the post_detail view can create a new comment from the Post page
+        """
+        response = self.client.post(self.detail_url, {
+            'comment_content': 'New Comment Content'
+        })
+        new_comment = Comment.objects.order_by('-id')[0]
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(new_comment.comment_content, 'New Comment Content')
+        new_comment.delete()
 
     
 
