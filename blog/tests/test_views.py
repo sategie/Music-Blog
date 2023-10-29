@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from blog.models import Post, Comment, Profile, User
-import json
+from blog.models import Post, Comment, Profile
+from django.contrib.auth.models import User
+
 
 
 class TestViews(TestCase):
