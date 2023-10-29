@@ -28,6 +28,7 @@ class TestViews(TestCase):
             post_content='Test Content',
             status=1
         )
+        self.index_url = reverse('home')
         self.detail_url = reverse('blog', args=[self.post1.slug])
         self.create_post_url = reverse('create_post')
         self.modify_post_url = reverse(
@@ -38,6 +39,14 @@ class TestViews(TestCase):
         #     'profile', args=[self.user.username])
         self.like_post_url = reverse('like_post', args=[self.post1.slug])
 
+    def test_index_GET(self):
+        """
+        Test that index page is correctly retrieved using the right template
+        """
+        response = self.client.get(self.index_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+    
     def test_post_list_GET(self):
         """
         Test that post_list is correctly retrieved using the right template
@@ -78,10 +87,10 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_delete.html')
 
-    def test_like_post_GET(self):
+    def test_like_post_POST(self):
         """
-        Test if like increases by 1 when like_post is retrieved
-        Test if the like is removed if the another such request is made
+        Test if like increases by 1 when like_post a user likes a post
+        Test if the like is removed if the user likes the post again
         """
 
         initial_likes = self.post1.likes.count()
@@ -124,6 +133,16 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(new_comment.comment_content, 'New Comment Content')
         new_comment.delete()
+
+    def test_post_invalid_comment_POST(self):
+        """
+        Test that the post_detail view does not create a new comment on invalid POST data
+        """
+        response = self.client.post(self.detail_url, {
+            'comment_content': '' 
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.context['comment_form'].is_valid())
 
     
 

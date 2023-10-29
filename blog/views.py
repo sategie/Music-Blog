@@ -109,7 +109,7 @@ def like_post(request, slug):
 def create_post(request):
     template = 'post_create.html'
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             # Capitalize the first letter in each word in the title
