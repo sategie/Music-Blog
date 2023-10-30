@@ -159,7 +159,7 @@ def modify_post(request, slug):
     template = 'post_modify.html'
     post = get_object_or_404(Post, slug=slug)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             # Capitalize the first letter in each word in the title

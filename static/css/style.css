@@ -127,19 +127,32 @@ footer {
 }
 
 
-.card-text {
-    font-size: larger;
-}
 
 .blogs-card {
    margin: 0.6rem;
    margin-right: 2rem;
+   display: flex;
+   height: 100%;
+   flex-direction: column;
 }
 
 .blogs-card:hover {
     transform: scale(1.05);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
+
+.card-text {
+    flex-grow: 1;
+    font-size: larger;
+    
+}
+
+
+.blogs-style {
+    height: 100%;
+}
+
+
 
 .page {
     margin-top: 5rem;

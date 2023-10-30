@@ -1,49 +1,58 @@
 {% extends "base.html" %} {% block content %}
-
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for blog in blogs %}
-                <div class="col-md-4">
-                    <div class="card mb-4 blogs-card">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in blog.featured_image.url %}
-                                <img class="card-img-top img-style"
-                                    src="https://res.cloudinary.com/dvfxz4as6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1696421917/django/music_blog_u8unue.jpg" alt="Default blog image"/>
-                                {% else %}
-                                <img class="card-img-top img-style" src=" {{ blog.featured_image.url }}" alt="Blog image selected by author"/>
-                                {% endif %}
-                                <div class="image-flash mt-2">
-                                    <p class="writer">Written by {{ blog.author.get_full_name | default:blog.author.username }}</p>
-                                </div>
+
+                <div class="col-lg-4 mb-5">
+
+                    <div class="card mb-4 blogs-card blogs-style">
+
+                        <div class="image-container">
+                            {% if "placeholder" in blog.featured_image.url %}
+                            <img class="card-img-top img-style"
+                                src="https://res.cloudinary.com/dvfxz4as6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1696421917/django/music_blog_u8unue.jpg"
+                                alt="Default blog image" />
+                            {% else %}
+                            <img class="card-img-top img-style" src=" {{ blog.featured_image.url }}"
+                                alt="Blog image selected by author" />
+                            {% endif %}
+                            <div class="image-flash mt-2">
+                                <p class="writer">Written by {{ blog.author.get_full_name | default:blog.author.username }}</p>
                             </div>
+                        </div>
+                        <div class="card-body">
                             <a href="{% url 'blog' blog.slug  %}" class="blog-link">
                                 <h2 class="card-title">{{ blog.title }}</h2>
                                 <p class="card-text">{{ blog.blog_snippet | safe }}</p>
                             </a>
+
                             <hr />
                             <p class="card-text text-muted h6">
-                                {{ blog.created_date}} 
+                                {{ blog.created_date}}
                                 <i class="far fa-heart"></i> {{blog.number_of_likes }}
-                    
+
                             </p>
+
                         </div>
+
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% endfor %}
             </div>
-            <div class="row">{% endif %} {% endfor %}</div>
         </div>
     </div>
+</div>
+
 
 <div class="page">
-    
+   
         <nav aria-label="Page navigation example">
             <ul class="pagination">
         {% if blogs.has_previous %}
+
 
         <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
         <li class="page-item"><a class="page-link" href="?page={{ blogs.previous_page_number }}">previous</a></li>
@@ -59,5 +68,7 @@
         </nav>    
 </div>
 
+
 </div>
 {%endblock%}
+
