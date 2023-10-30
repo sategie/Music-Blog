@@ -1,39 +1,42 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Audoiotown Music Blog
 
-Welcome,
+The Audiotown Music Blog is a Django project which enables users read, like and comment on music blogs.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project here.](https://audiotown-music-blog-8325eb2cec3b.herokuapp.com/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
 
-## Codeanywhere Reminders
+## User Experience (UX)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+### Project Goals:
 
-`python3 -m http.server`
+The project is designed to enable CRUD functionality for blogs.
+Staff members are the only persons authorized to create, update and delete blogs.
+Non-staff members on the other hand can read, like or comment on a blog.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### User stories
+    - As a Site User, I can view blog posts in order to select a post to read
+    - As a Site User, I can click on a particular post in order to read the post's content
+    - As a Site Admin, I can perform CRUD functions on posts in order to manage posts
+    - As a Site or Admin User, I can view the number of likes on each blog post in order to see the most interesting post
+    - As a Site User, I can register an account on the blog app in order to comment on or like a post
+    - As a Site or Admin User, I can view the comments on a blog post in order to to know people's opinion about the post
+    - As a Site Admin, I can approve or disapprove comments in order to ensure that only acceptable comments are displayed to the public
+    - As a Site User, I can comment on a post in order to to give my opinion about the post
+    - As a Site User, I can like or unlike a post in order to let the author know whether or not the post is eye catching
+    - As a Site Admin, I can log in and create a profile page for myself.
+    - As a Site Admin, I can create a blog in the app after signing in.
+    - As a Site Admin, I can log in and see my profile and associated posts.
+    - As a Site Admin, I can log in and view my profile and access the respective posts from there.
+    - As a Site Admin, I can edit my full name and bio in the Profile page.
+    - As a Site User or Site Admin, I can view the blogs on different pages.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
 
-`http_server`
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
 
-Happy coding!
+
