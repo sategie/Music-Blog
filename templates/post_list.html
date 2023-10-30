@@ -16,7 +16,7 @@
                                 src="https://res.cloudinary.com/dvfxz4as6/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1696421917/django/music_blog_u8unue.jpg"
                                 alt="Default blog image" />
                             {% else %}
-                            <img class="card-img-top img-style" src=" {{ blog.featured_image.url }}"
+                            <img class="card-img-top img-style" src="{{ blog.featured_image.url }}"
                                 alt="Blog image selected by author" />
                             {% endif %}
                             <div class="image-flash mt-2">

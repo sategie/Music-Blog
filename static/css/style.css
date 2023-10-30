@@ -11,9 +11,9 @@ body {
     font-size: larger;
 }
 
-/* Masthead design adopted from Code Institute's 'I think therefore I Blog' Django project */
+/* Masthead design adapted from Code Institute's 'I think therefore I Blog' Django project */
 .masthead {
-    margin-top: 10px;
+    margin-top: 1rem;
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -46,6 +46,16 @@ body {
     z-index: 100;
 }
 /* End of adopted code */
+
+.blog-title {
+
+}
+
+.blog-subtext {
+
+}
+
+
 
 .blog-link {
     color: #212529;
@@ -108,7 +118,7 @@ footer {
     border-radius: 5px;
     box-shadow: 0 0 5px #212529;
     transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+    cursor: default;
 }
 
 .pic-style {
@@ -152,6 +162,9 @@ footer {
     height: 100%;
 }
 
+.writer {
+    margin-left: 0.9rem;
+}
 
 
 .page {
