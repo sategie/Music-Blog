@@ -11,7 +11,6 @@ from django.core.paginator import Paginator
 from django.db import IntegrityError
 
 
-
 def index(request):
     """
     Landing page
@@ -42,7 +41,7 @@ def post_list(request):
 
 def post_detail(request, slug):
     """
-    Function-based view which handles the display of a blog post as well as 
+    Function-based view which handles the display of a blog post as well as
     the display/creation of comments associated with the selected post.
     """
     template = 'post_detail.html'
@@ -61,7 +60,7 @@ def post_detail(request, slug):
         if comment_form.is_valid():
             """
             Creates a new comment if the submitted form is valid.
-            The new comment is linked to the current post with the author being 
+            The new comment is linked to the current post with the author being
             the currently logged in user.
             """
             new_comment = comment_form.save(commit=False)
@@ -86,12 +85,14 @@ def post_detail(request, slug):
 
     return render(request, template, context)
 
+
 @login_required
 def like_post(request, slug):
     """
     This function is used to manage the likes of a user on a blog post
 
-    If the user clicks on the like button when they have already liked the post,
+    If the user clicks on the like button when they have already
+    liked the post,
     the post is unliked, else the post is liked
     """
     post = get_object_or_404(Post, slug=slug)
@@ -118,13 +119,15 @@ def create_post(request):
             post.slug = slugify(post.title)
             # Set author to the currently logged in user
             post.author = request.user
-            
             try:
                 post.save()
             # Handle cases where a slug already exists for a given title
             except IntegrityError:
                 messages.error(
-                    request, 'A post with the same title or slug already exists.')
+                    request,
+                    'A post with the same title '
+                    'or slug already exists.'
+                )
                 context = {
                     'form': form
                 }
@@ -132,7 +135,7 @@ def create_post(request):
 
             reversed_url = reverse('blogs')
             return HttpResponseRedirect(reversed_url)
-            
+
     else:
         form = PostForm()
 
@@ -152,7 +155,7 @@ def modify_post(request, slug):
     - saves the form's data without commiting to the database
     - modifies the slug depending on the title of the post
     - saves the post to the database afterwards
-    - after saving to the database, the user is redirected to the specific 
+    - after saving to the database, the user is redirected to the specific
       blog's page
     - if it is not a POST request, the initial form is displayed
     """
@@ -174,7 +177,10 @@ def modify_post(request, slug):
             # Handle cases where a slug already exists for a given title
             except IntegrityError:
                 messages.error(
-                    request, 'A post with the same title or slug already exists.')
+                    request,
+                    'A post with the same title '
+                    'or slug already exists.'
+                )
                 context = {
                     'form': form
                 }
