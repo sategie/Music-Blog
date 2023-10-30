@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from models import Post, Comment, Profile
+from .models import Post, Comment, Profile
 from django_summernote.admin import SummernoteModelAdmin
 
 

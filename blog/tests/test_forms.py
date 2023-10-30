@@ -42,5 +42,3 @@ class TestForms(TestCase):
         expected = ['full_name', 'bio']
         actual = list(self.profile_form.fields)
         self.assertSequenceEqual(expected, actual)
-
-

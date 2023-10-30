@@ -1,6 +1,17 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from blog.views import index, post_list, post_detail, like_post, create_post, modify_post, delete_post, user_profile, edit_profile
+from blog.views import (
+    index,
+    post_list,
+    post_detail,
+    like_post,
+    create_post,
+    modify_post,
+    delete_post,
+    user_profile,
+    edit_profile
+)
+
 
 class TestUrls(SimpleTestCase):
     """
@@ -34,7 +45,8 @@ class TestUrls(SimpleTestCase):
     def test_blog_success(self):
         """
         Test that the 'blog' url resolves to the post_detail view
-        The slug argument for blog (from urls.py) is passed into the url variable
+        The slug argument for blog (from urls.py) is passed into
+        the url variable
         """
         url = reverse('blog', args=['test-slug'])
         print(resolve(url))

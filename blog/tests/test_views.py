@@ -46,7 +46,7 @@ class TestViews(TestCase):
         response = self.client.get(self.index_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-    
+
     def test_post_list_GET(self):
         """
         Test that post_list is correctly retrieved using the right template
@@ -124,7 +124,8 @@ class TestViews(TestCase):
 
     def test_post_comment_POST(self):
         """
-        Test that the post_detail view can create a new comment from the Post page
+        Test that the post_detail view can create a new comment from the
+        Post page
         """
         response = self.client.post(self.detail_url, {
             'comment_content': 'New Comment Content'
@@ -136,21 +137,11 @@ class TestViews(TestCase):
 
     def test_post_invalid_comment_POST(self):
         """
-        Test that the post_detail view does not create a new comment on invalid POST data
+        Test that the post_detail view does not create a new comment on
+        invalid POST data
         """
         response = self.client.post(self.detail_url, {
-            'comment_content': '' 
+            'comment_content': ''
         })
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['comment_form'].is_valid())
-
-    
-
-    
-
-
-
-
-
-
-
