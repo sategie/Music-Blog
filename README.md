@@ -64,11 +64,11 @@ Non-staff members on the other hand can read, like or comment on a blog.
   - The font sizes for the project are displayed using rem units to improve the readability on various screen sizes.
 
 - **Landing Page**
-
-    - The page that appears as soon as the URL loads is the home screen.
-      - The home screen is has a Navbar and Footer which is consistent across all other pages.
-      - The landing page's hero image is a picture of a guitar which fits well to the purpose of the app.
-      - When a user logs in, a welcome message displays on the home screen with the username of the user(irrespective of staff membership).
+  
+  - The page that appears as soon as the URL loads is the home screen.
+  - The home screen is has a Navbar and Footer which is consistent across all other pages.
+  - The landing page's hero image is a picture of a guitar which fits well to the purpose of the app.
+  - When a user logs in, a welcome message displays on the home screen with the username of the user(irrespective of staff membership).
   
         ![Image of landing page showing the navbar and hero image](blog/documentation/landing-page.png)
         ![Image of landing page showing footer](blog/documentation/landing-page-footer.png)
@@ -144,6 +144,10 @@ Non-staff members on the other hand can read, like or comment on a blog.
 - All three models all have a Foreign Key relationship to the built in Django User model
   
         ![Image of Entity Relationship Diagram for models](blog/documentation/audiotown-erd.png)
+
+### Wireframes
+
+- The wireframes for this project were done on paper to get a clear understanding of the project structure
 
 
 ## Technologies Used
