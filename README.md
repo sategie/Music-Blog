@@ -310,3 +310,51 @@ In CodeAnywhere:
 In the Heroku App:
 1. Settings > Config Vars : Delete environment variable : DISABLE_COLLECTSTATIC
 2. Click on Deploy Branch under the Deploy tab
+
+
+### How to Fork the Repository
+
+        - You can make a copy of the project by doing the following:
+
+            1. Go to the project's Github repository <https://github.com/sategie/Music-Blog>
+
+            2. Click on the *Fork* button on the top right of the screen.
+
+        - Note: Changes made here do not affect the original repository
+
+### How to Clone the Repository
+
+    - The repository can be cloned by doing the following:
+
+            1. Go to the project's Github repository <https://github.com/sategie/Music-Blog>
+
+            2. Click the green *Code* button on the right.
+
+            3. Click on *HTTPS* and copy the link.
+
+            4. Open Git and change the working directory to where you want to have the cloned directory.
+
+            5. Type *git clone* and paste the copied URL.
+
+    - You can make changes to the project by doing the following:
+
+            1. Type *git add .*
+
+            2. Type *git commit -m* and add a short comment within quotes .e.g git commit -m "This is a short comment example"
+
+            3. Type *git push* to push the changes to the repository
+
+    - Note: Any update committed to the main branch immediately reflects in the hosted site.
+
+## Credit
+
+### Code
+
+- Inspiration for the post_list and post_detail templates was taken from Code Institute's 'I think therefore I Blog' walkthrough project
+
+### Acknowledgements
+
+- My amazing family provided a lot of support and encouragement during the creation of this project.
+
+- My Mentor Brian Macharia really helped me by providing useful links to help in understanding some of the concepts in this project
+
