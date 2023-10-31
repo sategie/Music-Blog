@@ -4,6 +4,8 @@ The Audiotown Music Blog is a Django project which enables users read, like and 
 
 [View the live project here.](https://audiotown-music-blog-8325eb2cec3b.herokuapp.com/)
 
+![Image of AudioTown Music Blog app on different screen sizes and showing the different screens of the app](blog/documentation/am-i-responsive.png)
+
 
 ## User Experience (UX)
 
