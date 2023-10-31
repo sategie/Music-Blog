@@ -71,7 +71,9 @@ Non-staff members on the other hand can read, like or comment on a blog.
   - When a user logs in, a welcome message displays on the home screen with the username of the user(irrespective of staff membership).
   
         ![Image of landing page showing the navbar and hero image](blog/documentation/landing-page.png)
+
         ![Image of landing page showing footer](blog/documentation/landing-page-footer.png)
+        
         ![Image of welcome message that displays whenever a user logs in](blog/documentation/landing-page-non-staff.png)
 
 - **Navbar**
