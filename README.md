@@ -218,7 +218,26 @@ Non-staff members on the other hand can read, like or comment on a blog.
 
 ### Manual Testing Outcomes
   
-  
+  | **Test**         	| **Test Action**                                                                     	| **Expected Outcome**                                                                             	| **Result** 	|
+|------------------	|-------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------	|------------	|
+| Landing Page     	| Enter Page URL without signing in                                                   	| Following options are available: **Home**, **Blogs**, **Signup** and **Login**                   	| PASS       	|
+| Landing Page     	| Sign in with non-staff member account                                               	| Following options are available: **Home**, **Blogs**, **Logout**                                 	| PASS       	|
+| Landing Page     	| Sign in with staff member account                                                   	| Following options are available: **Home**, **Blogs**, **Create Blog**, **Profile**, **Logout**   	| PASS       	|
+| Blogs            	| Click on Blogs icon without logging in                                              	| A list of blogs are shown                                                                        	| PASS       	|
+| Blog Detail      	| Click on a single blog without logging in                                           	| The blog can be read and comments can be seen, but no option to add a comment or like the blog   	| PASS       	|
+| Blog Detail      	| Click on a single blog after logging in                                             	| The blog can be read, comments can be seen, user has option to add a comment or like the blog    	| PASS       	|
+| Blog Detail      	| Click on a single blog as an authenticated staff member who wrote the selected blog 	| The user has the option to edit or delete the blog                                               	| PASS       	|
+| Comment          	| Post a comment on a blog                                                            	| A message appears informing that the comment is awaiting approval                                	| PASS       	|
+| Profile          	| Cick on profile as an authenticated staff member who has a profile created          	| The user profile appears showing the profile picture, full name, bio and list of posts created   	| PASS       	|
+| Posts in Profile 	| Click on a post which is listed in your profile as a staff member                   	| The user is redirected to the blog detail page to read the post                                  	| PASS       	|
+| Edit Profile     	| Click on the option to edit profile                                                 	| The user is taken to a form to edit only the full name and bio                                   	| PASS       	|
+| Create Blog      	| Click on the Create Blog option as a staff member                                   	| The user has the option to enter the title, upload an image for the blog and enter the blog text 	| PASS       	|
+| Edit Blog        	| Click on Edit Blog as a staff member who wrote the blog                             	| The user is taken to a form to edit the blog                                                     	| PASS       	|
+| Delete Blog      	| Click on Delete Blog as a staff member who wrote the blog                           	| The user is taken to a page to confirm whether the blog should be deleted or not                 	| PASS       	|
+| Blog Image       	| Create a blog without uploading an image for the blog                               	| A default image is used to populate the image field                                              	| PASS       	|
+| Logout           	| Click on the Logout button                                                          	| The user is asked to confirm if they want to logout and they have the option to cancel           	| PASS       	|
+
+
 
 
 
