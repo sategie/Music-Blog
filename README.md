@@ -238,7 +238,75 @@ Non-staff members on the other hand can read, like or comment on a blog.
 | Logout           	| Click on the Logout button                                                          	| The user is asked to confirm if they want to logout and they have the option to cancel           	| PASS       	|
 
 
+### Known bugs
+
+- There are currently no known bugs
+
+## Deployment
+
+### PostgreSQL Database
+
+ElephantSQL is the database hosting service used for this project
+
+1. Navigate to elephantsql.com and click 'Get a managed database today'. When presented with options for differing plans, I chose the free 'Tiny Turtle' plan.
+2. Select “Log in with GitHub” and authorize ElephantSQL with your selected GitHub account.
+3. In the Create new team form:
+    - Add a team name.
+    - Read and agree to the Terms of Service.
+    - Provide your email address.
+    - Click “Create Team”.
+4. Your account should now be created.
+5. Now you will need to create your database. Navigate to your elephantsql.com dashboard, and click "Create New Instance".
+6. Set up your plan:
+    - Give your plan a Name (this is commonly the name of the project).
+    - Select the Tiny Turtle (Free) plan.
+    - You can leave the Tags field blank.
+7. Select a data center near you.
+8. Then click "Review".
+9. Check your details are correct and then click "Create Instance".
+10. Return to the ElephantSQL dashboard and click on the database instance name for the project.
 
 
+### Deploy with Heroku
 
 
+- Log in to Heroku at <https://heroku.com>
+- From the Heroku dashboard, click the Create new app button. For a new account an icon will be visible on screen to allow you to Create an app, otherwise a link to this function is located under the New dropdown menu at the top right of the screen.
+-  On the Create New App page, enter a unique name for the application and select region. Then click Create app.
+-  On the Application Configuration page for the new app, click on the Resources tab.
+- Next, click on Settings on the Application Configuration page and click on "Reveal Config Vars".
+- Add a new Config Var called DISABLE_COLLECTSTATIC and assign it a value of 1, and click Add to save it. Remove this when releasing for Production.
+- Add a new Config Var called SECRET_KEY and assign it a value - any random string of letters, digits and symbols, and click Add to save it.
+- Add a new Config Var called DATABASE_URL and paste in the value for your ElephantSQL database, and click Add to save it.
+- The settings.py file should be updated to use the DATABASE_URL and SECRET_KEY environment variable values as follows :
+
+        DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+
+        SECRET_KEY = os.environ.get('SECRET_KEY')
+
+-  In CodeAnywhere, in the project terminal window, to initialize the data model in the postgres database, run the command : python3 manage.py migrate
+-  Update the requirements.txt file with all necessary supporting files by entering the command : pip freeze > requirements.txt
+-  Commit and push any local changes to GitHub.
+-  In order to be able to run the application on localhost, add SECRET_KEY and DATABASE_URL and their values to env.py
+
+Connect GitHub Repo to Heroku App
+
+- Navigate to Application Configuration page for the application on Heroku and click on the Deploy tab.
+- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter and search for the required repository, then click on Connect to link them up..
+- Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - I chose the latter for the initial deployment to watch the build and then opted for Automatic Deployment.
+- The application can be run from the Application Configuration page by clicking on the Open App button.
+- Each time you push code from your GitHub Repo it will be automatically reflected in your Heroku App.
+
+
+### Deploying to Production
+
+In CodeAnywhere:
+
+1. Set DEBUG flag to False in settings.py (**Very Important**)
+2. Check the following line exists in settings.py to enable Summernote to work on the deployed environment (CORS security feature): X_FRAME_OPTIONS = 'SAMEORIGIN'
+3. Update the requirements.txt file with all necessary supporting files by entering the command : pip freeze > requirements.txt
+4. Commit and push code to GitHub
+   
+In the Heroku App:
+1. Settings > Config Vars : Delete environment variable : DISABLE_COLLECTSTATIC
+2. Click on Deploy Branch under the Deploy tab
