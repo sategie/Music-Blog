@@ -116,11 +116,67 @@ Non-staff members on the other hand can read, like or comment on a blog.
 - **Sharing Blogs**
   
   - The ability to share blog posts to social media after logging in.
+
+## Project Design
+
+### Database Models
+
+- This project is hosted on Heroku and the PostgreSQL database is used.
+- Cloudinary is used to store all blog images.
+- Three custom models were created: **Post**, **Comment** and **Profile**
+- All three models all have a Foreign Key relationship to the built in Django User model
   
+        ![Image of Entity Relationship Diagram for models](blog/documentation/audiotown-erd.png)
 
 
+## Technologies Used
+
+### Languages
+
+- HTML5
+- CSS3
+- JavaScript
+- Python
+
+### Frameworks/Libraries
+
+- [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework for styling most parts of the project
+- [Django:](https://www.djangoproject.com/) Main Python framework used
+- [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication
+- [Cloudinary:](https://cloudinary.com/) Used to store all uploaded images
+- [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used to record the percentage of automated tests carried out
+- [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
+- [Gunicorn:](https://gunicorn.org/) used as the web server to run Django on Heroku.
+- [psycopg2:](https://pypi.org/project/psycopg2/) Used PostgreSQL database adapter.
+- [Summernote:](https://github.com/summernote/django-summernote) Used to provide a WYSIWYG editor for blogs and uploading images.
 
 
+### Technologies/Software
+
+- [Am I Responsive:](http://ami.responsivedesign.is) Used to create the responsiveness image across different screen sizes
+- [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used for testing responsiveness and device compatibility
+- [Font Awesome:](https://fontawesome.com/) Used to add icons in the project
+- [Git:](https://git-scm.com/) Git was used for version control
+- [GitHub:](https://github.com/) GitHub is used to store the project
+- [Google Fonts:](https://fonts.google.com/) Used to import the Roboto and serif fonts for the project.
+- [Heroku:](https://www.heroku.com/) Used for deployment and hosting of the application.
+- [Elephant SQL:](https://customer.elephantsql.com/login) The database hosting service used in the project
+- [HTML Validator:](https://validator.w3.org/) Used to validate the HTML
+- [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the Entity Relationship Diagram for the database models
+- [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
+
+
+## Testing
+
+### Browser Compatibility
+
+- The project was tested on the browsers listed below. The project worked as expected on all three browsers without any significant differences noticed.
+
+  - Google Chrome Version 118.0.5993.117 (Official Build) (64-Bit)
+
+  - Microsoft Edge Version 118.0.2088.76 (Official build) (64-bit)
+
+  - Firefox Version 119.0 (64-Bit)
 
 
 
