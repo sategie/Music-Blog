@@ -178,9 +178,47 @@ Non-staff members on the other hand can read, like or comment on a blog.
 
   - Firefox Version 119.0 (64-Bit)
 
+### Lighthouse
+
+  - Lighthouse was used to test the project based on the following criteria: Performance, Accessibility, Best Practices and SEO. Google Chrome (Incognito Mode) was used.
+  
+    ![Image of lighthouse results](blog/documentation/Testing/lighthouse.png)
+
+### Validators
+
+- HTML
+    - No errors were found using the official W3C validator.
+
+- CSS
+    - No errors were found using the W3C CSS (jigsaw) validator.
+
+- Python
+    - No errors were found in the python files using Code Institute's PEP8 Python Linter.
 
 
+  ![Image of html validation](blog/documentation/Testing/html-checker.png)
+  ![Image of css validation](blog/documentation/Testing/css-validator.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/admin-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/forms-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/models-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/urls-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/views-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/test-forms-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/test-models-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/test-urls-py.png)
+  ![Image of PEP8 Python Linter results](blog/documentation/Testing/test-views-py.png)
 
+### Automated Testing
+
+- Django Testcase was primarily used to perform the automated testing
+- Coverage was used to generate a summary of the automated tests carried out.
+- A coverage of 89% was achieved
+  
+  ![Image of automated tests summary using Coverage](blog/documentation/Testing/coverage-report.png)
+
+### Manual Testing Outcomes
+  
+  
 
 
 
